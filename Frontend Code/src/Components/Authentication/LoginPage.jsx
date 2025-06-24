@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import './LoginPage.css';
 import { auth } from "../../redux/authactionTypes";
 
@@ -8,6 +9,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
     const [isSignup, setIsSignup] = useState(false);
+    const authLoading = useSelector(state => state.authLoading)
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -62,7 +64,9 @@ const LoginPage = () => {
 
                     }
 
-                    <button type="submit">{isSignup ? 'Sign up' : "Login"}</button>
+                    <button type="submit" disabled={authLoading}>
+                        {authLoading ? 'Submitting...' : isSignup ? 'Sign Up' : 'Login'}
+                    </button>
                     <br />
                     <p onClick={modeSwitch}><a style={{ cursor: "pointer", textDecoration: 'underline' }}>
                         {isSignup ? 'Switch to Login' : "Switch to Sign up"}</a></p>
