@@ -1,0 +1,6 @@
+.App {
+  min-height: 100vh;
+  background-color: #f2f4fe;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

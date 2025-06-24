@@ -1,0 +1,11 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+  background-color: #f2f4fe;
+  font-family: 'Segoe UI', sans-serif;
+}
